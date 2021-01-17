@@ -1,5 +1,12 @@
+import Home from './components/Home';
+import Layout from './components/Layout';
+
 const App = () => {
-	return <div>app</div>;
+	return (
+		<Layout>
+			<Home />
+		</Layout>
+	);
 };
 
 export default App;
