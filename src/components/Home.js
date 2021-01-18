@@ -1,26 +1,15 @@
 import { Button } from '@geist-ui/react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-// import useSocket from '../hooks/useSocket';
 
-const Home = ({ query }) => {
-	// const socket = useSocket('message', (message) => {
-	// 	console.log(message);
-	// });
-
-	// useSocket('room.full', () => {
-	// 	console.log('room you attempted to join is full');
-	// });
-
-	// if (query && query.id) {
-	// 	socket.emit('room.connect', query.id);
-	// }
+const Home = () => {
+	const history = useHistory();
 
 	const handleGameCreation = () => {
 		axios
 			.post('/api/game/new')
-			.then((response) => {
-				console.log(response);
-			})
+			.then((response) => response.data)
+			.then((data) => history.push(`/game?id=${data._id}`))
 			.catch((error) => console.log(error));
 	};
 

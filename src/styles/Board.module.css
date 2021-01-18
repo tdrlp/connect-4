@@ -1,0 +1,6 @@
+.board {
+    margin: 0 auto;
+    display: table;
+    border-collapse: separate;
+    border-spacing: 5px;
+}
